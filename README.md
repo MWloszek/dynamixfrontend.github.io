@@ -1,6 +1,6 @@
 # DynamiX Front-End Standards Guide
 
-The following document outlines Dynamix's style guide for front-end development. These guidelines strongly encourage the use of existing, common, sensible patterns. They should be used to develop in your daily workflow.
+The following document outlines Dynamix's standards for front-end development. These guidelines strongly encourage the use of existing, common, sensible patterns. They should be used to develop in your daily workflow.
 
 This is a living document and new ideas are always welcome. Please contribute.
 
