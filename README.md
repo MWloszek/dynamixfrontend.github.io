@@ -10,8 +10,9 @@ This is a living document and new ideas are always welcome. Please contribute.
 1. [General principles](#general-principles)
 2. [Whitespace](#whitespace)
 3. [Comments](#comments)
-4. [Format](#format)
-5. [Practical example](#example)
+4. [CSS](#css)
+5. [HTML](#html)
+6. [JavaScript/jQuery](#js)
 
 <a name="general-principles"></a>
 ## 1. General principles
@@ -34,7 +35,7 @@ This is a living document and new ideas are always welcome. Please contribute.
 
 Only one style should exist across the entire source of your code-base. Always be consistent in your use of whitespace. Use whitespace to improve readability.
 
-* Use spaces for indentation and remain consitant with the number of characters used per indentation level.
+* Use spaces for indentation and remain consistant with the number of characters used per indentation level.
   (Preference: 4 spaces)
 
 Tip: configure your editor to "show invisibles" or to automatically remove end-of-line whitespace.
@@ -52,10 +53,7 @@ Comment style should be simple and consistent within a single code base.
 
 * Place comments on a new line above their subject.
 * Keep line-length to a sensible maximum, e.g., 80 columns.
-* Make liberal use of comments to break CSS code into discrete sections.
 * Use "sentence case" comments and consistent text indentation.
-
-Tip: configure your editor to provide you with shortcuts to output agreed-upon comment patterns.
 
 Example:
 
@@ -64,232 +62,17 @@ Example:
 ```
 
 
-<a name="format"></a>
-## 4. Format
-
-The chosen code format must ensure that code is: easy to read; easy to clearly
-comment; minimizes the chance of accidentally introducing errors; and results
-in useful diffs and blames.
-
-* Use one discrete selector per line in multi-selector rulesets.
-* Include a single space before the opening brace of a ruleset.
-* Include one declaration per line in a declaration block.
-* Use one level of indentation for each declaration.
-* Include a single space after the colon of a declaration.
-* Use lowercase and shorthand hex values, e.g., `#aaa`.
-* Use single or double quotes consistently. Preference is for double quotes,
-  e.g., `content: ""`.
-* Quote attribute values in selectors, e.g., `input[type="checkbox"]`.
-* _Where allowed_, avoid specifying units for zero-values, e.g., `margin: 0`.
-* Include a space after each comma in comma-separated property or function
-  values.
-* Include a semi-colon at the end of the last declaration in a declaration
-  block.
-* Place the closing brace of a ruleset in the same column as the first
-  character of the ruleset.
-* Separate each ruleset by a blank line.
-
-```css
-.selector-1,
-.selector-2,
-.selector-3[type="text"] {
-    display: block;
-    box-sizing: border-box;
-    font-family: helvetica, arial, sans-serif;
-    color: #333;
-    background-color: #fff;
-}
-
-.selector-a,
-.selector-b {
-    padding: 10px;
-}
-```
-
-#### Declaration order
-
-If declarations are to be consistently ordered, it should be in accordance with
-a single, simple principle.
-
-Smaller teams may prefer to cluster related properties (e.g. positioning and
-box-model) together.
-
-```css
-.selector {
-    /* Positioning */
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    /* Display & Box Model */
-    display: inline-block;
-    overflow: hidden;
-    box-sizing: border-box;
-    width: 100px;
-    height: 100px;
-    padding: 10px;
-    border: 10px solid #333;
-    margin: 10px;
-
-    /* Other */
-    background: #000;
-    color: #fff;
-    font-family: sans-serif;
-    font-size: 16px;
-    text-align: right;
-}
-```
-
-Larger teams may prefer the simplicity and ease-of-maintenance that comes with
-alphabetical ordering.
-
-#### Exceptions and slight deviations
-
-Large blocks of single declarations can use a slightly different, single-line
-format. In this case, a space should be included after the opening brace and
-before the closing brace.
-
-```css
-.selector-1 { width: 10%; }
-.selector-2 { width: 20%; }
-.selector-3 { width: 30%; }
-```
-
-Long, comma-separated property values - such as collections of gradients or
-shadows - can be arranged across multiple lines in an effort to improve
-readability and produce more useful diffs. There are various formats that could
-be used; one example is shown below.
-
-```css
-.selector {
-    background-image:
-        linear-gradient(#fff, #ccc),
-        linear-gradient(#f3c, #4ec);
-    box-shadow:
-        1px 1px 1px #000,
-        2px 2px 1px 1px #ccc inset;
-}
-```
-
-### Preprocessors: additional format considerations
-
-Different CSS preprocessors have different features, functionality, and syntax.
-Your conventions should be extended to accommodate the particularities of any
-preprocessor in use. The following guidelines are in reference to Sass.
-
-* Limit nesting to 1 level deep. Reassess any nesting more than 2 levels deep.
-  This prevents overly-specific CSS selectors.
-* Avoid large numbers of nested rules. Break them up when readability starts to
-  be affected. Preference to avoid nesting that spreads over more than 20
-  lines.
-* Always place `@extend` statements on the first lines of a declaration
-  block.
-* Where possible, group `@include` statements at the top of a declaration
-  block, after any `@extend` statements.
-* Consider prefixing custom functions with `x-` or another namespace. This
-  helps to avoid any potential to confuse your function with a native CSS
-  function, or to clash with functions from libraries.
-
-```scss
-.selector-1 {
-    @extend .other-rule;
-    @include clearfix();
-    @include box-sizing(border-box);
-    width: x-grid-unit(1);
-    // other declarations
-}
-```
+<a name="css"></a>
+## 4. CSS
 
 
-<a name="example"></a>
-## 5. Practical example
+<a name="html"></a>
+## 5. HTML
 
-An example of various conventions.
 
-```css
-/* ==========================================================================
-   Grid layout
-   ========================================================================== */
+<a name="js"></a>
+## 6. JavaScript/jQuery
 
-/**
- * Column layout with horizontal scroll.
- *
- * This creates a single row of full-height, non-wrapping columns that can
- * be browsed horizontally within their parent.
- *
- * Example HTML:
- *
- * <div class="grid">
- *     <div class="cell cell-3"></div>
- *     <div class="cell cell-3"></div>
- *     <div class="cell cell-3"></div>
- * </div>
- */
-
-/**
- * Grid container
- *
- * Must only contain `.cell` children.
- *
- * 1. Remove inter-cell whitespace
- * 2. Prevent inline-block cells wrapping
- */
-
-.grid {
-    height: 100%;
-    font-size: 0; /* 1 */
-    white-space: nowrap; /* 2 */
-}
-
-/**
- * Grid cells
- *
- * No explicit width by default. Extend with `.cell-n` classes.
- *
- * 1. Set the inter-cell spacing
- * 2. Reset white-space inherited from `.grid`
- * 3. Reset font-size inherited from `.grid`
- */
-
-.cell {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    box-sizing: border-box;
-    height: 100%;
-    padding: 0 10px; /* 1 */
-    border: 2px solid #333;
-    vertical-align: top;
-    white-space: normal; /* 2 */
-    font-size: 16px; /* 3 */
-}
-
-/* Cell states */
-
-.cell.is-animating {
-    background-color: #fffdec;
-}
-
-/* Cell dimensions
-   ========================================================================== */
-
-.cell-1 { width: 10%; }
-.cell-2 { width: 20%; }
-.cell-3 { width: 30%; }
-.cell-4 { width: 40%; }
-.cell-5 { width: 50%; }
-
-/* Cell modifiers
-   ========================================================================== */
-
-.cell--detail,
-.cell--important {
-    border-width: 4px;
-}
-```
 
 Based on a work at
 [github.com/necolas/idiomatic-css](https://github.com/necolas/idiomatic-css).
