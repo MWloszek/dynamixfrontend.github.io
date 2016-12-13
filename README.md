@@ -9,6 +9,12 @@ This is a living document and new ideas are always welcome. Please contribute.
 
 1. [General principles](#general-principles)
 2. [CSS](#css)
+	* [Browser Support](#browser-support)
+	* [Organization](#organization)
+	* [Structure](#structure)
+	* [Selectors](#selectors)
+	* [Properties](#properties)
+	* [Values](#values)
 3. [Less](#less)
 4. [HTML](#html) - Coming Soon
 5. [JavaScript/jQuery](#js) - Coming Soon
@@ -29,6 +35,8 @@ This is a living document and new ideas are always welcome. Please contribute.
 
 <a name="css"></a>
 ## CSS
+
+<a name="browser-support"></a>
 ### Browser Support
 #### Desktop
 We support the latest versions of Chrome, Firefox, IE11, Edge, and Safari. 
@@ -38,11 +46,13 @@ The width container we develop to is 1600px. Please note, designs are built at 1
 We support the current and two prior versions of iOS and the mobile version of Chrome on Android.
 The minimum screen size we develop to is 320px. 
 
+<a name="organization"></a>
 ### Organization
 * Each layout should have a unique .less file
 * Less files should correspond with their PHP file: `layout-feature.php` -> `layout-feature.less`
 
 
+<a name="structure"></a>
 ### Structure
 * Use tabs to indent each property (preference 4 spaces wide)
 * Configure your editor to remove end-of-line whitespaces
@@ -63,7 +73,7 @@ The minimum screen size we develop to is 320px.
 .feature-grid-3 { background-color: @blue; }
 ```
 
-
+<a name="selectors"></a>
 ### Selectors
 #### Do:
 * Use classes for all styling
@@ -77,12 +87,13 @@ The minimum screen size we develop to is 320px.
 * Do not over-qualify selectors: `div.feature-wrapper` should be `.feature-wrapper`
 
 
+<a name="properties"></a>
 ### Properties - General Rules
 * Properties should be followed by a colon then a space: `background-color:@blue` should be `background-color: @blue`
 * All properties and values should be lowercase, except for font names
 * All colors should be defined as a variable 
 * Shorthand should be used as much as possible (background, font, list-style, padding, etc)
-* Individual properties in a shorthand group should be defined specifically: `background: @blue` should be `background-color: @blue` 
+* Do not use shorthand when listing one property: `background: @blue` should be `background-color: @blue` 
 
 
 ### Properties - Ordering
@@ -125,6 +136,7 @@ Comments are added for description sake and not necessary. Spacing between group
 ```
 
 
+<a name="values"></a>
 ### Values
 * Do not pad parantheses with spaces
 * Always end values with a semicolon
