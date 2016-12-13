@@ -196,13 +196,12 @@ Multiple line comments are wrapped in Less silent comments and extended asterick
 //  or 
 //  Multiple Line Comment block
 //****************************************************************************/
-
 ```
 
 <a name="less"></a>
 ## Less
 ### Color Variables
-* Colors are defined by six digit hex values
+Colors are defined by six digit hex values and grouped in like color groups
 
 **EXAMPLES**
 ```
