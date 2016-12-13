@@ -8,71 +8,180 @@ This is a living document and new ideas are always welcome. Please contribute.
 ## Table of contents
 
 1. [General principles](#general-principles)
-2. [Whitespace](#whitespace)
-3. [Comments](#comments)
-4. [CSS](#css)
-5. [HTML](#html)
-6. [JavaScript/jQuery](#js)
+2. [CSS](#css)
+3. [Less](#less)
+4. [HTML](#html) - Coming Soon
+5. [JavaScript/jQuery](#js) - Coming Soon
+6. [References](#references) - Coming Soon
 
 <a name="general-principles"></a>
-## 1. General principles
+## General principles
 
 > "Part of being a good steward to a successful project is realizing that
 > writing code for yourself is a Bad Idea™. If thousands of people are using
 > your code, then write your code for maximum clarity, not your personal
 > preference of how to get clever within the spec." - Idan Gazit
 
-* Don't try to prematurely optimize your code; keep it readable and
-  understandable.
-* All code in any code-base should look like a single person typed it, even
-  when many people are contributing to it.
+* All code in any code-base should look like a single person typed it, even when many people are contributing to it.
 * Strictly enforce the agreed-upon style.
 * If in doubt when deciding upon a style use existing, common patterns.
 
 
-<a name="whitespace"></a>
-## 2. Whitespace
+<a name="css"></a>
+## CSS
+### Browser Support
+#### Desktop
+We support the latest versions of Chrome, Firefox, IE11, Edge, and Safari. 
+The width container we develop to is 1600px. Please note, designs are built at 1280px, so develop at 1600px and ensure the site continues to match the design at 1280px. 
 
-Only one style should exist across the entire source of your code-base. Always be consistent in your use of whitespace. Use whitespace to improve readability.
+#### Mobile
+We support the current and two prior versions of iOS and the mobile version of Chrome on Android.
+The minimum screen size we develop to is 320px. 
 
-* Use spaces for indentation and remain consistant with the number of characters used per indentation level.
-  (Preference: 4 spaces)
+### Organization
+* Each layout should have a unique .less file
+* Less files should correspond with their PHP file: `layout-feature.php` -> `layout-feature.less`
 
-Tip: configure your editor to "show invisibles" or to automatically remove end-of-line whitespace.
 
+### Structure
+* Use tabs to indent each property (preference 4 spaces wide)
+* Configure your editor to remove end-of-line whitespaces
+* Each selector should be on its own line, ending in either a comma or opening curly brace
+* When a group of selectors have a single matching property, group them and list the property/values on one line
 
-<a name="comments"></a>
-## 3. Comments
+**EXAMPLE**
+```
+.feature-header,
+.feature-body,
+.feature-footer {
+	background-color: @light-gray;
+	color: @blue;
+}
 
-Well commented code is extremely important. Take time to describe components,
-how they work, their limitations, and the way they are constructed. Don't leave
-others in the team guessing as to the purpose of uncommon or non-obvious
-code.
-
-Comment style should be simple and consistent within a single code base.
-
-* Place comments on a new line above their subject.
-* Keep line-length to a sensible maximum, e.g., 80 columns.
-* Use "sentence case" comments and consistent text indentation.
-
-Example:
-
-```css
-/* Basic comment */
+.feature-grid-1 { background-color: @gray; }
+.feature-grid-2 { background-color: @black; }
+.feature-grid-3 { background-color: @blue; }
 ```
 
 
-<a name="css"></a>
-## 4. CSS
+### Selectors
+#### Do:
+* Use classes for all styling
+* Do not use ID's for CSS
+* Use lowercase and hyphen-separated words for naming selectors
+* Attribute selectors must have quotes: `input[type="text"]`
+
+#### Don't:
+* Avoid universal selectors
+* Avoid tag selectors: `.layout-feature h1` should be `.layout-feature-header`
+* Do not over-qualify selectors: `div.feature-wrapper` should be `.feature-wrapper`
+
+
+### Properties - General Rules
+* Properties should be followed by a colon then a space: `background-color:@blue` should be `background-color: @blue`
+* All properties and values should be lowercase, except for font names
+* All colors should be defined as a variable 
+* Shorthand should be used as much as possible (background, font, list-style, padding, etc)
+* Individual properties in a shorthand group should be defined specifically: `background: @blue` should be `background-color: @blue` 
+
+
+### Properties - Ordering
+All properties should be grouped by type. 
+
+**EXAMPLE**
+
+Comments are added for description sake and not necessary. Spacing between grouped type is optional.
+
+```
+.selector {
+/* Display & Box Model */
+	display: inline-block;
+	width: 50%;
+	padding: 15px 10px;
+	border: 2px solid @gray;
+	margin: 10px;
+
+/* Layout & Positioning */
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 10;
+
+/* Color */
+	background-color: @blue;
+	color: @white;
+
+/* Text */
+	font: 700 16px/1.2 "Open Sans", sans-serif;
+	text-align: right;
+
+/* Other/Misc */
+	cursor: pointer;
+
+/* Animations & Transitions */
+	transition: all 300ms;
+	transform: translateY(50%);
+}
+```
+
+
+### Values
+* Do not pad parantheses with spaces
+* Always end values with a semicolon
+* Use double quotes rather than single quotes and only when needed (font names when space separated)
+* Font weights should be defined using numeric values: `bold` should be `700`
+* Values that are 0 should be unitless: `margin: 0px;` should be `margin: 0;`
+* `line-height` should be unitless unless defined at a specific pixel value
+* Use a leading zero for decimal values: `opacity: .5;` should be `opacity: 0.5`
+* Comma separated values for one property should be separated by a newline:
+**EXAMPLE**
+```
+.selector {
+	box-shadow: 1px 1px 1px 0 @black,
+				2px 2px 2px 0 @gray;
+}
+```
+
+### Vendor Prefixes
+Vendor prefixes are automatically added when grunt builds the project. Be sure you are still verifying browser support. 
+
+
+### Media Queries
+* Media queries are nested within the property you are styling
+* 
+
+
+### Vendor
+
+### Comments
+
+
+
+<a name="less"></a>
+## Less
+### Color Variables
+* Colors are defined by six digit hex values
+**EXAMPLES**
+```
+@white: #ffffff;
+@black: #000000;
+
+@gray: #333333;
+@light-gray: #eeeeee;
+
+@blue: #0064ff;
+```
 
 
 <a name="html"></a>
-## 5. HTML
+## HTML - Coming Soon
 
 
 <a name="js"></a>
-## 6. JavaScript/jQuery
+## JavaScript/jQuery - Coming Soon
 
 
-Based on a work at
-[github.com/necolas/idiomatic-css](https://github.com/necolas/idiomatic-css).
+<a name="references"></a>
+## References
+* Based on a work at [github.com/necolas/idiomatic-css](https://github.com/necolas/idiomatic-css).
+
