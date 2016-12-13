@@ -164,10 +164,16 @@ Vendor prefixes are automatically added when grunt builds the project. Be sure y
 
 <a name="media-queries"></a>
 ### Media Queries
-* Media queries are nested within the property being styled
+* Media queries are nested within the property being styled with Less.
 
 **EXAMPLE**
 ```
+.feature-wrapper {
+	width: 50%;
+	@media screen and (max-width: 767px) {
+		width: 100%;
+	}
+}
 
 ```
 
