@@ -15,6 +15,9 @@ This is a living document and new ideas are always welcome. Please contribute.
 	* [Selectors](#selectors)
 	* [Properties](#properties)
 	* [Values](#values)
+	* [Vendor Prefixes](#vendor-prefixes)
+	* [Media Queries](#media-queries)
+	* [Comments](#comments)
 3. [Less](#less)
 4. [HTML](#html) - Coming Soon
 5. [JavaScript/jQuery](#js) - Coming Soon
@@ -154,16 +157,21 @@ Comments are added for description sake and not necessary. Spacing between group
 }
 ```
 
+<a name="vendor-prefixes"></a>
 ### Vendor Prefixes
 Vendor prefixes are automatically added when grunt builds the project. Be sure you are still verifying browser support. 
 
 
+<a name="media-queries"></a>
 ### Media Queries
-* Media queries are nested within the property you are styling
+* Media queries are nested within the property being styled
 
+**EXAMPLE**
+```
 
-### Vendor
+```
 
+<a name="comments"></a>
 ### Comments
 
 
