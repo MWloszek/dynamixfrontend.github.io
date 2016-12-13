@@ -12,7 +12,7 @@ This is a living document and new ideas are always welcome. Please contribute.
 3. [Less](#less)
 4. [HTML](#html) - Coming Soon
 5. [JavaScript/jQuery](#js) - Coming Soon
-6. [References](#references) - Coming Soon
+6. [References](#references)
 
 <a name="general-principles"></a>
 ## General principles
@@ -148,7 +148,6 @@ Vendor prefixes are automatically added when grunt builds the project. Be sure y
 
 ### Media Queries
 * Media queries are nested within the property you are styling
-* 
 
 
 ### Vendor
@@ -161,6 +160,7 @@ Vendor prefixes are automatically added when grunt builds the project. Be sure y
 ## Less
 ### Color Variables
 * Colors are defined by six digit hex values
+
 **EXAMPLES**
 ```
 @white: #ffffff;
@@ -183,5 +183,5 @@ Vendor prefixes are automatically added when grunt builds the project. Be sure y
 
 <a name="references"></a>
 ## References
-* Based on a work at [github.com/necolas/idiomatic-css](https://github.com/necolas/idiomatic-css).
-
+* [Idiomatic CSS](https://github.com/necolas/idiomatic-css)
+* [MDN CSS Best Practices](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS)
