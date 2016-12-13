@@ -148,6 +148,7 @@ Comments are added for description sake and not necessary. Spacing between group
 * `line-height` should be unitless unless defined at a specific pixel value
 * Use a leading zero for decimal values: `opacity: .5;` should be `opacity: 0.5`
 * Comma separated values for one property should be separated by a newline:
+
 **EXAMPLE**
 ```
 .selector {
