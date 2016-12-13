@@ -1,0 +1,311 @@
+<h1 id="dynamixfrontendstandardsguide">DynamiX Front-End Standards Guide</h1>
+
+<p>The following document outlines Dynamix's standards for front-end development. These guidelines strongly encourage the use of existing, common, sensible patterns. They should be used to develop in your daily workflow.</p>
+
+<p>This is a living document and new ideas are always welcome. Please contribute.</p>
+
+<h2 id="tableofcontents">Table of contents</h2>
+
+<ol>
+<li><a href="#general-principles">General principles</a></li>
+
+<li><a href="#css">CSS</a>
+
+
+<ul>
+<li><a href="#browser-support">Browser Support</a></li>
+
+<li><a href="#organization">Organization</a></li>
+
+<li><a href="#structure">Structure</a></li>
+
+<li><a href="#selectors">Selectors</a></li>
+
+<li><a href="#properties">Properties</a></li>
+
+<li><a href="#values">Values</a></li>
+
+<li><a href="#vendor-prefixes">Vendor Prefixes</a></li>
+
+<li><a href="#media-queries">Media Queries</a></li>
+
+<li><a href="#comments">Comments</a></li></ul>
+</li>
+
+<li><a href="#less">Less</a></li>
+
+<li><a href="#html">HTML</a> - Coming Soon</li>
+
+<li><a href="#js">JavaScript/jQuery</a> - Coming Soon</li>
+
+<li><a href="#references">References</a></li>
+</ol>
+
+<p><a name="general-principles"></a></p>
+
+<h2 id="generalprinciples">General principles</h2>
+
+<blockquote>
+  <p>"Part of being a good steward to a successful project is realizing that
+  writing code for yourself is a Bad Idea™. If thousands of people are using
+  your code, then write your code for maximum clarity, not your personal
+  preference of how to get clever within the spec." - Idan Gazit</p>
+</blockquote>
+
+<ul>
+<li>All code in any code-base should look like a single person typed it, even when many people are contributing to it.</li>
+
+<li>Strictly enforce the agreed-upon style.</li>
+
+<li>If in doubt when deciding upon a style use existing, common patterns.</li>
+</ul>
+
+<p><a name="css"></a></p>
+
+<h2 id="css">CSS</h2>
+
+<p><a name="browser-support"></a></p>
+
+<h3 id="browsersupport">Browser Support</h3>
+
+<h4 id="desktop">Desktop</h4>
+
+<p>We support the latest versions of Chrome, Firefox, IE11, Edge, and Safari. 
+The width container we develop to is 1600px. Please note, designs are built at 1280px, so develop at 1600px and ensure the site continues to match the design at 1280px. </p>
+
+<h4 id="mobile">Mobile</h4>
+
+<p>We support the current and two prior versions of iOS and the mobile version of Chrome on Android.
+The minimum screen size we develop to is 320px. </p>
+
+<p><a name="organization"></a></p>
+
+<h3 id="organization">Organization</h3>
+
+<ul>
+<li>Each layout should have a unique .less file</li>
+
+<li>Less files should correspond with their PHP file: <code>layout-feature.php</code> -> <code>layout-feature.less</code></li>
+</ul>
+
+<p><a name="structure"></a></p>
+
+<h3 id="structure">Structure</h3>
+
+<ul>
+<li>Use tabs to indent each property (preference 4 spaces wide)</li>
+
+<li>Each selector should be on its own line, ending in either a comma or opening curly brace</li>
+
+<li>When a group of selectors have a single matching property, group them and list the property/values on one line</li>
+</ul>
+
+<p><strong>EXAMPLE</strong></p>
+
+<pre><code>.feature-header,
+.feature-body,
+.feature-footer {
+    background-color: @light-gray;
+    color: @blue;
+}
+
+.feature-grid-1 { background-color: @gray; }
+.feature-grid-2 { background-color: @black; }
+.feature-grid-3 { background-color: @blue; }
+</code></pre>
+
+<p><a name="selectors"></a></p>
+
+<h3 id="selectors">Selectors</h3>
+
+<h4 id="do">Do:</h4>
+
+<ul>
+<li>Use classes for all styling</li>
+
+<li>Do not use ID's for CSS</li>
+
+<li>Use lowercase and hyphen-separated words for naming selectors</li>
+
+<li>Attribute selectors must have quotes: <code>input[type="text"]</code></li>
+</ul>
+
+<h4 id="dont">Don't:</h4>
+
+<ul>
+<li>Avoid universal selectors</li>
+
+<li>Avoid tag selectors: <code>.layout-feature h1</code> should be <code>.layout-feature-header</code></li>
+
+<li>Do not over-qualify selectors: <code>div.feature-wrapper</code> should be <code>.feature-wrapper</code></li>
+</ul>
+
+<p><a name="properties"></a></p>
+
+<h3 id="propertiesgeneralrules">Properties - General Rules</h3>
+
+<ul>
+<li>Properties should be followed by a colon then a space: <code>background-color:@blue</code> should be <code>background-color: @blue</code></li>
+
+<li>All properties and values should be lowercase, except for font names</li>
+
+<li>All colors should be defined as a variable </li>
+
+<li>Shorthand should be used as much as possible (background, font, list-style, padding, etc)</li>
+
+<li>Do not use shorthand when listing one property: <code>background: @blue</code> should be <code>background-color: @blue</code> </li>
+</ul>
+
+<h3 id="propertiesordering">Properties - Ordering</h3>
+
+<p>All properties should be grouped by type. </p>
+
+<p><strong>EXAMPLE</strong></p>
+
+<p>Comments are added for description sake and not necessary. Spacing between grouped type is optional.</p>
+
+<pre><code>.selector {
+/* Display &amp; Box Model */
+    display: inline-block;
+    width: 50%;
+    padding: 15px 10px;
+    border: 2px solid @gray;
+    margin: 10px;
+
+/* Layout &amp; Positioning */
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+
+/* Color */
+    background-color: @blue;
+    color: @white;
+
+/* Text */
+    font: 700 16px/1.2 "Open Sans", sans-serif;
+    text-align: right;
+
+/* Other/Misc */
+    cursor: pointer;
+
+/* Animations &amp; Transitions */
+    transition: all 300ms;
+    transform: translateY(50%);
+}
+</code></pre>
+
+<p><a name="values"></a></p>
+
+<h3 id="values">Values</h3>
+
+<ul>
+<li>Do not pad parantheses with spaces</li>
+
+<li>Always end values with a semicolon</li>
+
+<li>Use double quotes rather than single quotes and only when needed (font names when space separated)</li>
+
+<li>Font weights should be defined using numeric values: <code>bold</code> should be <code>700</code></li>
+
+<li>Values that are 0 should be unitless: <code>margin: 0px;</code> should be <code>margin: 0;</code></li>
+
+<li><code>line-height</code> should be unitless unless defined at a specific pixel value</li>
+
+<li>Use a leading zero for decimal values: <code>opacity: .5;</code> should be <code>opacity: 0.5</code></li>
+
+<li>Comma separated values for one property should be separated by a newline:</li>
+</ul>
+
+<p><strong>EXAMPLE</strong></p>
+
+<pre><code>.selector {
+    box-shadow: 1px 1px 1px 0 @black,
+                2px 2px 2px 0 @gray;
+}
+</code></pre>
+
+<p><a name="vendor-prefixes"></a></p>
+
+<h3 id="vendorprefixes">Vendor Prefixes</h3>
+
+<p>Vendor prefixes are automatically added when grunt builds the project. Be sure you are still verifying browser support. </p>
+
+<p><a name="media-queries"></a></p>
+
+<h3 id="mediaqueries">Media Queries</h3>
+
+<ul>
+<li>Media queries are nested within the property being styled with Less.</li>
+</ul>
+
+<p><strong>EXAMPLE</strong></p>
+
+<pre><code>.feature-wrapper {
+    width: 50%;
+    @media screen and (max-width: 767px) {
+        width: 100%;
+    }
+}
+</code></pre>
+
+<p><a name="comments"></a></p>
+
+<h3 id="comments">Comments</h3>
+
+<p>When in doubt, always comment. Silent comments in Less are in notated with double backslashes. </p>
+
+<p><strong>EXAMPLES</strong></p>
+
+<p>Single line comments for a brief note on a declaration </p>
+
+<pre><code>.feature-header {
+    width: ~"calc(100% - 60px)"; \\ 60px is left and right padding at 30px
+}
+</code></pre>
+
+<p>Multiple line comments are wrapped in Less silent comments and extended astericks.</p>
+
+<pre><code>//****************************************************************************/
+//  Header Section
+//  or 
+//  Multiple Line Comment block
+//****************************************************************************/
+</code></pre>
+
+<p><a name="less"></a></p>
+
+<h2 id="less">Less</h2>
+
+<h3 id="colorvariables">Color Variables</h3>
+
+<p>Colors are defined by six digit hex values and grouped in like color groups</p>
+
+<p><strong>EXAMPLES</strong></p>
+
+<pre><code>@white: #ffffff;
+@black: #000000;
+
+@gray: #333333;
+@light-gray: #eeeeee;
+
+@blue: #0064ff;
+</code></pre>
+
+<p><a name="html"></a></p>
+
+<h2 id="htmlcomingsoon">HTML - Coming Soon</h2>
+
+<p><a name="js"></a></p>
+
+<h2 id="javascriptjquerycomingsoon">JavaScript/jQuery - Coming Soon</h2>
+
+<p><a name="references"></a></p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://github.com/necolas/idiomatic-css">Idiomatic CSS</a></li>
+
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS">MDN CSS Best Practices</a></li>
+</ul>
