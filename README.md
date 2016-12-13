@@ -58,7 +58,6 @@ The minimum screen size we develop to is 320px.
 <a name="structure"></a>
 ### Structure
 * Use tabs to indent each property (preference 4 spaces wide)
-* Configure your editor to remove end-of-line whitespaces
 * Each selector should be on its own line, ending in either a comma or opening curly brace
 * When a group of selectors have a single matching property, group them and list the property/values on one line
 
@@ -179,8 +178,26 @@ Vendor prefixes are automatically added when grunt builds the project. Be sure y
 
 <a name="comments"></a>
 ### Comments
+When in doubt, always comment. Silent comments in Less are in notated with double backslashes. 
 
+**EXAMPLES**
 
+Single line comments for a brief note on a declaration 
+```
+.feature-header {
+	width: ~"calc(100% - 60px)"; \\ 60px is left and right padding at 30px
+}
+```
+
+Multiple line comments are wrapped in Less silent comments and extended astericks.
+```
+//****************************************************************************/
+//  Header Section
+//  or 
+//  Multiple Line Comment block
+//****************************************************************************/
+
+```
 
 <a name="less"></a>
 ## Less
