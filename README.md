@@ -268,6 +268,52 @@ Colors are defined by six digit hex values and grouped in like color groups
 <a name="php"></a>
 ## PHP for the Front-End - Coming Soon
 
+### Conditionals
+PHP conditionals can be written a number of different ways, but as part of our goal of normalizing code practices we will be settling on using `AND`/`OR` instead of `&&`/`OR`, and we'll be using braces instead of colon notation.
+
+Do:
+```
+if ($foo != $bar AND $bar != $foo) {
+	//this is a good conditional
+}
+```
+
+Don't:
+```if ($foo != $bar && $bar != $foo):
+	//this is non-standard notation, and is thus bad
+endif;
+```
+
+### Quick Echo format
+PHP has a wonderful shorthand that allows a quick, single line (to the interpreter) echo of values. This format is _always_ followed by a PHP close tag, so the semi-colon will be omitted.
+
+Do:
+```
+<?= $foo['bar'] ?>
+```
+
+Don't:
+```
+<?= $foo['bar']; ?>
+```
+
+#### Side Note
+Except in the shorthand notation, always include the final `;` where needed. 
+
+Do: 
+```
+<?php
+	echo $foo;
+?>
+```
+
+Don't:
+```
+<?php
+	//this won't throw an exception, but is to be avoided.
+	echo $foo
+?>
+```
 
 <a name="references"></a>
 ## References
