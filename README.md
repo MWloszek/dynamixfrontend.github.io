@@ -266,10 +266,10 @@ Colors are defined by six digit hex values and grouped in like color groups
 
 
 <a name="php"></a>
-## PHP for the Front-End - Coming Soon
+## PHP for the Front-End
 
 ### Conditionals
-PHP conditionals can be written a number of different ways, but as part of our goal of normalizing code practices we will be settling on using `AND`/`OR` instead of `&&`/`OR`, and we'll be using braces instead of colon notation.
+PHP conditionals can be written a number of different ways, but as part of our goal of normalizing code practices we will be settling on using `AND`/`OR` instead of `&&`/`||`, and we'll be using braces instead of colon notation.
 
 Do:
 ```
