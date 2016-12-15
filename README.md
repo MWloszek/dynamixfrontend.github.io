@@ -1,6 +1,6 @@
 # DynamiX Front-End Guide
 
-The following document outlines Dynamix's standards and general best practices for front-end development. These guidelines strongly encourage the use of existing, common, sensible patterns. They should be used to develop in your daily workflow.
+The following document outlines DynamiX's standards and general best practices for front-end development. These guidelines strongly encourage the use of existing, common, sensible patterns. They should be used to develop in your daily workflow.
 
 This is a living document and new ideas are always welcome. Please contribute.
 
@@ -165,6 +165,8 @@ Vendor prefixes are automatically added when Grunt builds the project. Be sure y
 
 <a name="media-queries"></a>
 ### Media Queries
+DynamiX sites are built
+
 * Media queries are nested within the property:
 
 **EXAMPLE**
