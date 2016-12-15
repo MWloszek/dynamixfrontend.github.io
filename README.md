@@ -162,7 +162,7 @@ Comments are added for description sake and not necessary. Spacing between group
 <a name="units"></a>
 ### Units
 * Use units consistently. If you must mix units in a shorthand declaration, add comments explaining why
-* Do not use [Magic Numbers](https://css-tricks.com/magic-numbers-in-css/).
+* Avoid using [Magic Numbers](https://css-tricks.com/magic-numbers-in-css/).
 
 **Do:**
 ```
@@ -175,8 +175,8 @@ Comments are added for description sake and not necessary. Spacing between group
 **Don't:**
 ```
 .selector {
+	width: 250px;
 	padding: 10px 15% 3rem 2em;
-	margin-top: 27px;
 }
 ```
 
