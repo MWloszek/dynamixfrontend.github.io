@@ -279,7 +279,8 @@ if ($foo != $bar AND $bar != $foo) {
 ```
 
 Don't:
-```if ($foo != $bar && $bar != $foo):
+```
+if ($foo != $bar && $bar != $foo):
 	//this is non-standard notation, and is thus bad
 endif;
 ```
