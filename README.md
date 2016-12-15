@@ -80,13 +80,13 @@ The minimum screen size we develop to is 320px.
 ### Selectors
 #### Do:
 * Use classes for all styling
-* Do not use ID's for CSS
 * Use lowercase and hyphen-separated words for naming selectors
 * Attribute selectors must have quotes: `input[type="text"]`
 
 #### Don't:
 * Avoid universal selectors
 * Avoid tag selectors: `.layout-feature h1` should be `.layout-feature-header`
+* Do not use ID's for styling
 * Do not over-qualify selectors: `div.feature-wrapper` should be `.feature-wrapper`
 
 
