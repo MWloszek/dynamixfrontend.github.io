@@ -23,7 +23,7 @@ This is a living document and new ideas are always welcome. Please contribute.
 3. [Less](#less)
 4. [HTML](#html) - Coming Soon
 5. [JavaScript/jQuery](#js) - Coming Soon
-6. [PHP for the Front-End](#php) - Coming Soon
+6. [PHP for the Front-End](#php)
 7. [References](#references)
 
 <a name="general-principles"></a>
