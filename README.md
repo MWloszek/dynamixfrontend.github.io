@@ -165,7 +165,7 @@ Vendor prefixes are automatically added when Grunt builds the project. Be sure y
 
 <a name="media-queries"></a>
 ### Media Queries
-DynamiX sites are built responsively, not by any defined breakpoint. Our philosophy is that ours sites should look great on any sized screen. 
+DynamiX sites are built responsively, not by any defined breakpoint. Our philosophy is that our sites should look great on any sized screen. 
 
 * Media queries are nested within the property:
 
