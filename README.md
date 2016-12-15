@@ -4,7 +4,6 @@ The following document outlines DynamiX's standards and general best practices f
 
 This is a living document and new ideas are always welcome. Please contribute.
 
-
 ## Table of contents
 
 1. [General principles](#general-principles)
@@ -262,8 +261,8 @@ Colors are defined by six digit hex values and grouped in like color groups
 
 
 <a name="js"></a>
-## JavaScript/jQuery - Coming Soon
-
+## JavaScript/jQuery
+![image of javascript](http://i.imgur.com/a1lSytU.gif "This is javascript")
 
 <a name="php"></a>
 ## PHP for the Front-End
