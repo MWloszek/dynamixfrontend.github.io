@@ -23,7 +23,8 @@ This is a living document and new ideas are always welcome. Please contribute.
 3. [Less](#less)
 4. [HTML](#html) - Coming Soon
 5. [JavaScript/jQuery](#js) - Coming Soon
-6. [References](#references)
+6. [PHP for the Front-End](#php) - Coming Soon
+7. [References](#references)
 
 <a name="general-principles"></a>
 ## General principles
@@ -262,6 +263,10 @@ Colors are defined by six digit hex values and grouped in like color groups
 
 <a name="js"></a>
 ## JavaScript/jQuery - Coming Soon
+
+
+<a name="php"></a>
+## PHP for the Front-End - Coming Soon
 
 
 <a name="references"></a>
