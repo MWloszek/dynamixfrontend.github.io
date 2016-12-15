@@ -160,12 +160,12 @@ Comments are added for description sake and not necessary. Spacing between group
 
 <a name="vendor-prefixes"></a>
 ### Vendor Prefixes
-Vendor prefixes are automatically added when grunt builds the project. Be sure you are still verifying browser support. 
+Vendor prefixes are automatically added when Grunt builds the project. Be sure you are still verifying browser support. 
 
 
 <a name="media-queries"></a>
 ### Media Queries
-* Media queries are nested within the property being styled with Less.
+* Media queries are nested within the property:
 
 **EXAMPLE**
 ```
@@ -180,7 +180,7 @@ Vendor prefixes are automatically added when grunt builds the project. Be sure y
 
 <a name="comments"></a>
 ### Comments
-When in doubt, always comment. Silent comments in Less are in notated with forward backslashes. 
+When in doubt, always comment. Silent comments in Less are in notated with two forward slashes. 
 
 **EXAMPLES**
 
