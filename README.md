@@ -18,6 +18,7 @@ This is a living document and new ideas are always welcome. Please contribute.
 	* [Vendor Prefixes](#vendor-prefixes)
 	* [Media Queries](#media-queries)
 	* [Comments](#comments)
+	* [CSS Tips & Tricks](#tips)
 3. [Less](#less)
 4. [HTML](#html) - Coming Soon
 5. [JavaScript/jQuery](#js) - Coming Soon
@@ -179,14 +180,14 @@ Vendor prefixes are automatically added when grunt builds the project. Be sure y
 
 <a name="comments"></a>
 ### Comments
-When in doubt, always comment. Silent comments in Less are in notated with double backslashes. 
+When in doubt, always comment. Silent comments in Less are in notated with forward backslashes. 
 
 **EXAMPLES**
 
 Single line comments for a brief note on a declaration 
 ```
 .feature-header {
-	width: ~"calc(100% - 60px)"; \\ 60px is left and right padding at 30px
+	width: ~"calc(100% - 60px)"; // 60px is left and right padding at 30px
 }
 ```
 
@@ -197,6 +198,20 @@ Multiple line comments are wrapped in Less silent comments and extended asterick
 //  or 
 //  Multiple Line Comment block
 //****************************************************************************/
+```
+
+<a name="tips"></a>
+## CSS Tips & Tricks
+### Flexbox and Browser Support
+
+* `flex` descendants in IE11 do not respect `box-sizing: border-box`, so be sure to add a `max-width`
+
+**EXAMPLE**
+```
+.flex-child {
+	max-width: 100%;
+	box-sizing: border-box;
+}
 ```
 
 <a name="less"></a>
