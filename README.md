@@ -211,7 +211,9 @@ Multiple line comments are wrapped in Less silent comments and extended asterick
 **EXAMPLE**
 ```
 .flex-child {
+	flex: 1 0 100%;
 	max-width: 100%;
+	padding: 0 1em;
 	box-sizing: border-box;
 }
 ```
