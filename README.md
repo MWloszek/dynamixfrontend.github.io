@@ -15,6 +15,7 @@ This is a living document and new ideas are always welcome. Please contribute.
 	* [Selectors](#selectors)
 	* [Properties](#properties)
 	* [Values](#values)
+	* [Units](#units)
 	* [Vendor Prefixes](#vendor-prefixes)
 	* [Media Queries](#media-queries)
 	* [Comments](#comments)
@@ -158,6 +159,25 @@ Comments are added for description sake and not necessary. Spacing between group
 }
 ```
 
+<a name="units"></a>
+### Units
+* Use units consistently. If you find you need to mix units in a shorthand declaration, add comments explaining why
+
+**Do:**
+```
+.selector {
+	padding: 2em 0;
+	margin: 2em 5%; // 2em to remain consistent with other layouts, 5% to match design
+}
+```
+
+**Don't:**
+```
+.selector {
+	padding: 10px 15% 3rem 2em;
+}
+```
+
 <a name="vendor-prefixes"></a>
 ### Vendor Prefixes
 Vendor prefixes are automatically added when Grunt builds the project. Be sure you are still verifying browser support. 
@@ -247,3 +267,4 @@ Colors are defined by six digit hex values and grouped in like color groups
 ## References
 * [Idiomatic CSS](https://github.com/necolas/idiomatic-css)
 * [MDN CSS Best Practices](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS)
+* [MDN Units Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
