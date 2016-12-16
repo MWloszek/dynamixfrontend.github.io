@@ -7,9 +7,9 @@ This is a living document and new ideas are always welcome. Please contribute.
 ## Table of contents
 
 1. [General principles](#general-principles)
-2. [CSS](#css)
+2. [Project File Structure](#file-structure)
+3. [CSS](#css)
 	* [Browser Support](#browser-support)
-	* [Organization](#organization)
 	* [Structure](#structure)
 	* [Selectors](#selectors)
 	* [Properties](#properties)
@@ -19,19 +19,22 @@ This is a living document and new ideas are always welcome. Please contribute.
 	* [Media Queries](#media-queries)
 	* [Comments](#comments)
 	* [CSS Tips & Tricks](#tips)
-3. [Less](#less)
-4. [HTML](#html)
+4. [Less](#less)
+5. [HTML](#html)
 	* [Validation](#validation)
 	* [Self-Closing Elements](#self-closing-elements)
 	* [Quotes](#quotes)
 	* [Indentation](#indentation)
-5. [JavaScript/jQuery](#js) - Coming Soon
-6. [PHP for the Front-End](#php)
-7. [Pre-Launch](#prelaunch)
-8. [References](#references)
+6. [JavaScript/jQuery](#js) - Coming Soon
+7. [PHP for the Front-End](#php)
+8. [Pre-Launch Checklist](#prelaunch)
+9. [References](#references)
 
-<a name="general-principles"></a>
-## General principles
+<a name="file-structure"></a>
+## Project File Structure
+* Each layout should have a unique .less file and .js file if application
+* Less files should correspond with their PHP file: `layout-feature.php` -> `layout-feature.less` & `layout-feature.js`
+
 
 > "Part of being a good steward to a successful project is realizing that
 > writing code for yourself is a Bad Idea. If thousands of people are using
@@ -42,6 +45,8 @@ This is a living document and new ideas are always welcome. Please contribute.
 * Strictly enforce the agreed-upon style.
 * If in doubt when deciding upon a style use existing, common patterns.
 
+<a name="general-principles"></a>
+## General principles
 
 <a name="css"></a>
 ## CSS
@@ -55,12 +60,6 @@ The width container we develop to is 1600px. Please note, designs are built at 1
 #### Mobile
 We support the current and two prior versions of iOS and the mobile version of Chrome on Android.
 The minimum screen size we develop to is 320px. 
-
-<a name="organization"></a>
-### Organization
-* Each layout should have a unique .less file
-* Less files should correspond with their PHP file: `layout-feature.php` -> `layout-feature.less`
-
 
 <a name="structure"></a>
 ### Structure
