@@ -69,16 +69,18 @@ The minimum screen size we develop to is 320px.
 
 **EXAMPLE**
 ```
-.feature-header,
-.feature-body,
-.feature-footer {
-	background-color: @light-gray;
-	color: @blue;
-}
+.layout-feature {
+	.feature-header,
+	.feature-body,
+	.feature-footer {
+		background-color: @light-gray;
+		color: @blue;
+	}
 
-.feature-grid-1 { background-color: @gray; }
-.feature-grid-2 { background-color: @black; }
-.feature-grid-3 { background-color: @blue; }
+	.feature-grid-1 { background-color: @gray; }
+	.feature-grid-2 { background-color: @black; }
+	.feature-grid-3 { background-color: @blue; }
+}
 ```
 
 <a name="selectors"></a>
@@ -91,6 +93,7 @@ The minimum screen size we develop to is 320px.
 #### Don't:
 * Avoid universal selectors
 * Avoid tag selectors: `.layout-feature h1` should be `.layout-feature-header`
+	* The exception to this is when tags are inside of a Content Editor/WYSIWYG 
 * Do not use ID's for styling
 * Do not over-qualify selectors: `div.feature-wrapper` should be `.feature-wrapper`
 
@@ -100,7 +103,7 @@ The minimum screen size we develop to is 320px.
 * Properties should be followed by a colon then a space: `background-color:@blue` should be `background-color: @blue`
 * All properties and values should be lowercase, except for font names
 * All colors should be defined as a variable 
-* Shorthand should be used as much as possible (background, font, list-style, padding, etc)
+* Shorthand should be used as much as possible (background, list-style, padding, etc)
 * Do not use shorthand when listing one property: `background: @blue` should be `background-color: @blue` 
 
 
@@ -113,25 +116,25 @@ Comments are added for description sake and not necessary. Spacing between group
 
 ```
 .selector {
-/* Display & Box Model */
-	display: inline-block;
-	width: 50%;
-	padding: 15px 10px;
-	border: 2px solid @gray;
-	margin: 10px;
-
 /* Layout & Positioning */
 	position: absolute;
 	top: 0;
 	right: 0;
 	z-index: 10;
 
+/* Display & Box Model */
+	display: inline-block;
+	width: 50%;
+	padding: 15px 10px;
+	border: 2px solid @gray;
+	margin: 10px;
+	
 /* Color */
 	background-color: @blue;
 	color: @white;
 
 /* Text */
-	font: 700 16px/1.2 "Open Sans", sans-serif;
+	font-size: 2em;
 	text-align: right;
 
 /* Other/Misc */
@@ -154,6 +157,23 @@ Comments are added for description sake and not necessary. Spacing between group
 * `line-height` should be unitless unless defined at a specific pixel value
 * Use a leading zero for decimal values: `opacity: .5;` should be `opacity: 0.5`
 * Comma separated values for one property should be separated by a newline:
+
+**Don't:**
+```
+.selector {
+	transform: translateY( 50% );
+	transition: all 300ms	
+}
+```
+
+**Do:** 
+```
+.selector {
+	transform: translateY(50%);
+	transition: all 300ms;
+}
+```
+
 
 **EXAMPLE**
 ```
@@ -192,12 +212,14 @@ Vendor prefixes are automatically added when Grunt builds the project. Be sure y
 ### Media Queries
 DynamiX sites are built responsively, not by any defined breakpoint. Our philosophy is that our sites should look great on any sized screen. 
 
+* Media queries are written as `@media screen and` then the width/height property
 * Media queries are nested within the property:
 
 **EXAMPLE**
 ```
 .feature-wrapper {
 	width: 50%;
+	
 	@media screen and (max-width: 767px) {
 		width: 100%;
 	}
@@ -207,7 +229,7 @@ DynamiX sites are built responsively, not by any defined breakpoint. Our philoso
 
 <a name="comments"></a>
 ### Comments
-When in doubt, always comment. Silent comments in Less are in notated with two forward slashes. 
+When in doubt, always comment. Silent comments in Less are in notated with two forward slashes. All commented are removed when Grunt builds the project.
 
 **EXAMPLES**
 
@@ -245,8 +267,20 @@ Multiple line comments are wrapped in Less silent comments and extended asterisk
 
 <a name="less"></a>
 ## Less
+### Nesting
+Selectors should be nested only one level. 
+
+**EXAMPLE**
+```
+.layout-feature {
+	.layout-feature-header {
+		width: 25%;
+	}
+}
+```
+
 ### Color Variables
-Colors are defined by six digit hex values and grouped in like color groups
+Colors are defined by six digit hex values and grouped in like color groups.
 
 **EXAMPLES**
 ```
@@ -259,6 +293,14 @@ Colors are defined by six digit hex values and grouped in like color groups
 @blue: #0064ff;
 ```
 
+### Font Variables
+All fonts should be defined as variables
+
+**EXAMPLE**
+```
+@sans: "Open Sans", sans-serif;
+@serif: "Merriweather", serif;
+```
 
 <a name="html"></a>
 ## HTML
@@ -268,7 +310,7 @@ Colors are defined by six digit hex values and grouped in like color groups
 
 <a name="self-closing-elements"></a>
 ### Self-Closing elements
-* All tags that are self-closing must have a forward slash proceeded by one space. The correct method is: `<br />` not `<br/>
+* All tags that are self-closing must have a forward slash proceeded by one space. The correct method is: `<br />` not `<br/>`
 
 <a name="quotes"></a>
 ### Quotes
@@ -302,18 +344,18 @@ To maintain consistency, all attributes with values must be quoted with double-q
 ## PHP for the Front-End
 
 ### Conditionals
-PHP conditionals can be written a number of different ways, but as part of our goal of normalizing code practices we will be settling on using `AND`/`OR` instead of `&&`/`||`, and we'll be using braces instead of colon notation.
+PHP conditionals can be written a number of different ways, but as part of our goal of normalizing code practices we will be settling on using `&&`/`||` instead of `AND`/`OR`, and we'll be using braces instead of colon notation.
 
 Do:
 ```
-if ($foo != $bar AND $bar != $foo) {
+if ($foo != $bar && $bar != $foo) {
 	//this is a good conditional
 }
 ```
 
 Don't:
 ```
-if ($foo != $bar && $bar != $foo):
+if ($foo != $bar AND $bar != $foo):
 	//this is non-standard notation, and is thus bad
 endif;
 ```
