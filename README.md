@@ -33,7 +33,7 @@ This is a living document and new ideas are always welcome. Please contribute.
 <a name="file-structure"></a>
 ## Project File Structure
 * Each layout should have a unique .less file and .js file if application
-* Less files should correspond with their PHP file: `layout-feature.php` -> `layout-feature.less` & `layout-feature.js`
+* Less and JS files should correspond with their PHP file: `layout-feature.php` -> `layout-feature.less` & `layout-feature.js`
 
 
 > "Part of being a good steward to a successful project is realizing that
