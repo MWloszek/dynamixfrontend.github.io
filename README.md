@@ -34,7 +34,7 @@ This is a living document and new ideas are always welcome. Please contribute.
 ## General principles
 
 > "Part of being a good steward to a successful project is realizing that
-> writing code for yourself is a Bad Idea™. If thousands of people are using
+> writing code for yourself is a Bad Idea. If thousands of people are using
 > your code, then write your code for maximum clarity, not your personal
 > preference of how to get clever within the spec." - Idan Gazit
 
@@ -147,7 +147,7 @@ Comments are added for description sake and not necessary. Spacing between group
 
 <a name="values"></a>
 ### Values
-* Do not pad parantheses with spaces
+* Do not pad parentheses with spaces
 * Always end values with a semicolon
 * Use double quotes rather than single quotes and only when needed (font names when space separated)
 * Font weights should be defined using numeric values: `bold` should be `700`
@@ -219,7 +219,7 @@ Single line comments for a brief note on a declaration
 }
 ```
 
-Multiple line comments are wrapped in Less silent comments and extended astericks.
+Multiple line comments are wrapped in Less silent comments and extended asterisks.
 ```
 //****************************************************************************/
 //  Header Section
