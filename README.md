@@ -20,10 +20,15 @@ This is a living document and new ideas are always welcome. Please contribute.
 	* [Comments](#comments)
 	* [CSS Tips & Tricks](#tips)
 3. [Less](#less)
-4. [HTML](#html) - Coming Soon
+4. [HTML](#html)
+	* [Validation](#validation)
+	* [Self-Closing Elements](#self-closing-elements)
+	* [Quotes](#quotes)
+	* [Indentation](#indentation)
 5. [JavaScript/jQuery](#js) - Coming Soon
 6. [PHP for the Front-End](#php)
-7. [References](#references)
+7. [Pre-Launch](#prelaunch)
+8. [References](#references)
 
 <a name="general-principles"></a>
 ## General principles
@@ -59,7 +64,7 @@ The minimum screen size we develop to is 320px.
 
 <a name="structure"></a>
 ### Structure
-* Use tabs to indent each property (preference 4 spaces wide)
+* Use tabs to indent each property (preference 4 spaces)
 * Each selector should be on its own line, ending in either a comma or opening curly brace
 * When a group of selectors have a single matching property, group them and list the property/values on one line
 
@@ -257,7 +262,37 @@ Colors are defined by six digit hex values and grouped in like color groups
 
 
 <a name="html"></a>
-## HTML - Coming Soon
+## HTML
+<a name="validation"></a>
+### Validation
+* Each layout must be tested and pass validation on the [W3C Validator](https://validator.w3.org/nu/) 
+
+<a name="self-closing-elements"></a>
+### Self-Closing elements
+* All tags that are self-closing must have a forward slash proceeded by one space. The correct method is: `<br />` not `<br/>
+
+<a name="quotes"></a>
+### Quotes
+To maintain consistency, all attributes with values must be quoted with double-quotes. If an attribute is the same as the value name, the value can be omitted. 
+
+**EXAMPLE**
+```
+	<input type="text" name="email" disabled />
+```
+
+<a name="indentation"></a>
+### Indentation
+* Both HTML and PHP should follow indentation in a logical structure
+* Use tabs to indent (preference 4 spaces)
+
+**EXAMPLE** 
+```
+<ul>
+	<?php foreach($articles as $article) { ?>
+		<li><?= $article['header'] ?></li>
+	<?php } ?>
+</ul>
+```
 
 
 <a name="js"></a>
@@ -314,6 +349,32 @@ Don't:
 	echo $foo
 ?>
 ```
+
+<a name="prelaunch"></a>
+## Pre-Launch Checklist
+* Browser test. See the [browsers supported](#browser-support)
+* Validate HTML via the [W3C Validator](https://validator.w3.org/nu/)
+* Optimize S3 images
+* Optimize stylesheets/images directory
+* Speed test at [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
+	* Park the DOMAIN_NAME.pagespeed.dynamixlabs.com domain in SE/Octane then perform test on DOMAIN_NAME.pagespeed.dynamixlabs.com
+	* Remove parked domain immediately after testing
+* Implement [Google Tag Manager](https://tagmanager.google.com/)
+	* Open a recent project, access the Admin menu, then select Export Container. Follow prompts. 
+	* Open/create current site in Google Tag Manager (GTM)
+	* Access the Admin menu, then select Import Container. Follow prompts.
+	* Change Variables for the GA Code (taken from existing site) and Site Host
+	* Change Outbound Links to correct URL
+* Confirm analytic events is tracking properly:
+	* Comment out top if statement in the header.php file:
+	```
+	<?php //if(isset($_SERVER['env']) && $_SERVER['env'] != 'development'){
+		echo $site_analyticskey;
+		echo "\n";
+	//} ?>
+	```
+	* In GTM, click Publish
+
 
 <a name="references"></a>
 ## References
