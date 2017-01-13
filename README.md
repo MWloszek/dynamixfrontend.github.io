@@ -254,12 +254,13 @@ Multiple line comments are wrapped in Less silent comments and extended asterisk
 ### Flexbox and Browser Support
 
 * `flex` descendants in IE11 do not respect `box-sizing: border-box`, so be sure to add a `max-width`
+* Match the `max-width` value to the `flex-basis` value.  
 
 **EXAMPLE**
 ```
 .flex-child {
-	flex: 1 0 100%;
-	max-width: 100%;
+	flex: 1 0 75%;
+	max-width: 75%;
 	padding: 0 1em;
 	box-sizing: border-box;
 }
