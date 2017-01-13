@@ -345,7 +345,7 @@ To maintain consistency, all attributes with values must be quoted with double-q
 ## PHP for the Front-End
 
 ### Conditionals
-PHP conditionals can be written a number of different ways, but as part of our goal of normalizing code practices we will be settling on using `&&`/`||` instead of `AND`/`OR`, and we'll be using braces instead of colon notation.
+PHP conditionals can be written a number of different ways, but as part of our goal of normalizing code practices we use `&&`/`||` instead of `AND`/`OR`, and we'll be using braces instead of colon notation.
 
 Do:
 ```
