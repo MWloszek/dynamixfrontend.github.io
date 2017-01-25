@@ -25,6 +25,7 @@ This is a living document and new ideas are always welcome. Please contribute.
 	* [Self-Closing Elements](#self-closing-elements)
 	* [Quotes](#quotes)
 	* [Indentation](#indentation)
+	* [Images](#images)
 6. [JavaScript/jQuery](#js) - Coming Soon
 7. [PHP for the Front-End](#php)
 8. [Pre-Launch Checklist](#prelaunch)
@@ -335,6 +336,30 @@ To maintain consistency, all attributes with values must be quoted with double-q
 	<?php } ?>
 </ul>
 ```
+
+<a name="images"></a>
+### Images
+For most images you will use the following format:
+
+`<img src="<?= buildImageSrc($image, $width, $height) ?>" alt="{alt tag here}" />`
+or
+`<div style="background-image: url('<?= buildImageSrc($image, $width, $height) ?>');"> </div>`
+
+In the event that you have an image that needs retina-fication, such as a logo, you will use the following to generate an img tag with the srcset, class, and alt properties filled automatically:
+
+`<?= buildRetinaImage($image, $width, $height, "alt tag here", "image-class") ?>`
+
+"What if I need to resize or bound an image?!" Well, that is quite easy as well. You simply need to add another argument with the string corresponding to the functionality you desire.
+
+Example: you wish to have an image that is "fit" instead of the default value of "crop"
+
+`<img src="<?= buildImageSrc($image, $width, $height, "fit") ?>" alt="{alt tag here}" />`
+
+Finally, by default every image generated has a quality coefficient of 80 set by default. If, for any reason, you need to modify that value, or if you need to add further cloudimage operations, you merely need to add another argument.
+
+`<img src="<?= buildImageSrc($image, $width, $height, "fit", "q87.ctrans.tpng") ?>" alt="{alt tag here}" />`
+
+This will make an image fit, with a quality coefficient of 87, and then also will transform the file to a PNG so the letterboxing (if any) is transparent. You can daisy-chain as many cloudimage operations as you would like, so long as they are delineated by periods.
 
 
 <a name="js"></a>
