@@ -342,7 +342,9 @@ To maintain consistency, all attributes with values must be quoted with double-q
 For most images you will use the following format:
 
 `<img src="<?= buildImageSrc($image, $width, $height) ?>" alt="{alt tag here}" />`
+
 or
+
 `<div style="background-image: url('<?= buildImageSrc($image, $width, $height) ?>');"> </div>`
 
 In the event that you have an image that needs retina-fication, such as a logo, you will use the following to generate an img tag with the srcset, class, and alt properties filled automatically:
