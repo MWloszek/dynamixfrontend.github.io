@@ -149,8 +149,10 @@ Comments are added for description sake and not necessary. Spacing between group
 		/* Layout & Positioning */
 		.after;
 		display: inline-block;
+		
 		/* Text */
 		font-family: @font-awesome;
+		
 		/* Other/Misc/Reset Mixins */
 		content: "\f00d";
 	}
