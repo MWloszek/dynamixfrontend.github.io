@@ -117,33 +117,43 @@ Comments are added for description sake and not necessary. Spacing between group
 
 ```
 .selector {
-/* Layout & Positioning */
+	/* Layout & Positioning */
 	position: absolute;
 	top: 0;
 	right: 0;
 	z-index: 10;
 
-/* Display & Box Model */
+	/* Display & Box Model */
 	display: inline-block;
 	width: 50%;
 	padding: 15px 10px;
 	border: 2px solid @gray;
 	margin: 10px;
 	
-/* Color */
+	/* Color */
 	background-color: @blue;
 	color: @white;
 
-/* Text */
+	/* Text */
 	font-size: 2em;
 	text-align: right;
 
-/* Other/Misc */
+	/* Other/Misc */
 	cursor: pointer;
 
-/* Animations & Transitions */
+	/* Animations & Transitions */
 	transition: all 300ms;
 	transform: translateY(50%);
+	
+	&:after {
+		/* Layout & Positioning */
+		.after;
+		display: inline-block;
+		/* Text */
+		font-family: @font-awesome;
+		/* Other/Misc/Reset Mixins */
+		content: "\f00d";
+	}
 }
 ```
 
